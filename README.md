@@ -31,9 +31,7 @@ Il est possible d'ajouter des options Java pour augmenter la mémoire allouée �
 
 	elasticsearch -Xmx=2G -Xms=2G
 
-Pour vérifier le démarrage de votre noeud ElasticSearch,
-
-	[http://localhost:9200/](http://localhost:9200/)
+Pour vérifier le démarrage de votre noeud ElasticSearch : [http://localhost:9200/](http://localhost:9200/)
 
 Vous devriez obtenir une réponse qui ressemble à celle là :
 ```javascript
