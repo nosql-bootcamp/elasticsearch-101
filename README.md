@@ -1,4 +1,4 @@
-# elasticsearch-101
+# ElasticSearch 101
 
 ![elastic-logo](https://static-www.elastic.co/fr/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg?q=700)
 
