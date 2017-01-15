@@ -77,4 +77,4 @@ Pour vérifier l'installation de logstash, lancez la commande suivante :
 
 ## Next
 
-Vous pouvez passer à l'étape suivante : [Opérations CRUD](./instructions/step-1.md)
+Vous pouvez passer à l'étape suivante : [Opérations CRUD](./step-1.md)

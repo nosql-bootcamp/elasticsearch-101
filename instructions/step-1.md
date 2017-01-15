@@ -149,4 +149,4 @@ Les statut renvoyé :
 
 ## Next
 
-Vous pouvez passer à l'étape suivante : [L'API de recherche](./instructions/step-2.md)
+Vous pouvez passer à l'étape suivante : [L'API de recherche](./step-2.md)
