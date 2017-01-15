@@ -146,3 +146,7 @@ Les statut renvoyé :
 
 * **200** indique que le document existe
 * **404** indique que le document n'existe pas
+
+## Next
+
+Vous pouvez passer à l'étape suivante : [L'API de recherche](./instructions/step-2.md)

@@ -4,8 +4,6 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
-Lors de la mise en oeuvre de ce workshop, n'hésitez pas à vous appuyer sur la [documentation officielle de ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
-
 ## Introduction
 **ElasticSearch** est un moteur de recherches orienté documents qui a été créé par Shay Banon. **ElasticSearch** est basé sur la librairie [**Lucene**](http://lucene.apache.org/core/) qui est destinée à l'indexation full-text.
 
