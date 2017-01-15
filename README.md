@@ -1,6 +1,6 @@
 # elasticsearch-101
 
-![elastic-logo](https://static-www.elastic.co/fr/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg?q=700 | width=300)
+<img src="https://static-www.elastic.co/fr/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg?q=700" width="300" />
 
 **ElasticSearch 101** est un workshop permettant de découvrir la base de données NoSQL ElasticSearch et son écosystème, étape par étape.
 
