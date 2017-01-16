@@ -33,7 +33,7 @@ Les DevTools de **Kibana** facilitent l'utilisation d'ElasticSearch.
 
 Votre client *REST* préféré, si vous en avez un, fera sans problèmes l'affaire :smile:.
 
-### Les convetions
+### Les conventions
 
 L'API d'ElasticSearch est composé d'un ensemble d'APIs qui exposent des opérations spécialisées. Cette API est conforme aux standards REST. Elle est orientée ressources, s'appuie sur les verbes HTTP, les codes de retours HTTP...
 
