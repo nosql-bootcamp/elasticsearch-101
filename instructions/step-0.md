@@ -65,7 +65,7 @@ Vous pouvez maintenant lancer Kibana :
 bin/kibana
 ```
 
-Connectez-vous à votre instance de Kibana locale avec votre browser : http://localhost:5601
+Connectez-vous à votre instance de Kibana locale avec votre browser : [http://localhost:5601](http://localhost:5601)
 
 ## Next
 
