@@ -174,7 +174,7 @@ curl -XDELETE 'http://localhost:9200/heroes/person/ironman'
 Il est possible, à l'aide du verbe **HEAD** de vérifier l'existence d'un document (**attention, cette requête ne fonctionne pas sous Kibana !**)
 
 ```bash
-curl -XHEAD 'http://localhost:9200/heroes/person/ironman' -i
+curl -I 'http://localhost:9200/heroes/person/ironman'
 ```
 
 Les statut renvoyé :
