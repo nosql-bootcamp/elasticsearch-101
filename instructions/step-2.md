@@ -3,15 +3,15 @@
 Commençons par insérer quelques données ...
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/ironman' -d '{"firstName":"Tony","lastName":"Stark","aka":"Iron Man","team":"Avengers","age":45}'
-curl -XPOST 'http://localhost:9200/heroes/person/thor' -d '{"firstName":"Thor","lastName":"Odinson","aka":"Thor","team":"Avengers","age":27}'
-curl -XPOST 'http://localhost:9200/heroes/person/antman' -d '{"firstName":"Hank","lastName":"Pym","aka":"Ant-Man","team":"Avengers","age":41}'
-curl -XPOST 'http://localhost:9200/heroes/person/wasp' -d '{"firstName":"Janet","lastName":"van Dyne","aka":"Wasp","team":"Avengers","age":32}'
-curl -XPOST 'http://localhost:9200/heroes/person/hulk' -d '{"firstName":"Bruce","lastName":"Banner","aka":"Hulk","team":"Avengers","age":41}'
-curl -XPOST 'http://localhost:9200/heroes/person/misterfantastic' -d '{"firstName":"Reed","lastName":"Richards","aka":"Mister Fantastic","team":"FantasticFour","age":47}'
-curl -XPOST 'http://localhost:9200/heroes/person/invisiblewoman' -d '{"firstName":"Susan","lastName":"Storm","aka":"Invisible Woman","team":"FantasticFour","age":29}'
-curl -XPOST 'http://localhost:9200/heroes/person/thehumantorch' -d '{"firstName":"Johnny","lastName":"Storm","aka":"The Human Torch","team":"FantasticFour","age":25}'
-curl -XPOST 'http://localhost:9200/heroes/person/thething' -d '{"firstName":"Ben","lastName":"Grimm","aka":"The Thing","team":"FantasticFour","age":42}'
+curl -XPOST 'http://localhost:9200/heroes/person/ironman' -H 'Content-Type: application/json' -d '{"firstName":"Tony","lastName":"Stark","aka":"Iron Man","team":"Avengers","age":45}'
+curl -XPOST 'http://localhost:9200/heroes/person/thor' -H 'Content-Type: application/json' -d '{"firstName":"Thor","lastName":"Odinson","aka":"Thor","team":"Avengers","age":27}'
+curl -XPOST 'http://localhost:9200/heroes/person/antman' -H 'Content-Type: application/json' -d '{"firstName":"Hank","lastName":"Pym","aka":"Ant-Man","team":"Avengers","age":41}'
+curl -XPOST 'http://localhost:9200/heroes/person/wasp' -H 'Content-Type: application/json' -d '{"firstName":"Janet","lastName":"van Dyne","aka":"Wasp","team":"Avengers","age":32}'
+curl -XPOST 'http://localhost:9200/heroes/person/hulk' -H 'Content-Type: application/json' -d '{"firstName":"Bruce","lastName":"Banner","aka":"Hulk","team":"Avengers","age":41}'
+curl -XPOST 'http://localhost:9200/heroes/person/misterfantastic' -H 'Content-Type: application/json' -d '{"firstName":"Reed","lastName":"Richards","aka":"Mister Fantastic","team":"FantasticFour","age":47}'
+curl -XPOST 'http://localhost:9200/heroes/person/invisiblewoman' -H 'Content-Type: application/json' -d '{"firstName":"Susan","lastName":"Storm","aka":"Invisible Woman","team":"FantasticFour","age":29}'
+curl -XPOST 'http://localhost:9200/heroes/person/thehumantorch' -H 'Content-Type: application/json' -d '{"firstName":"Johnny","lastName":"Storm","aka":"The Human Torch","team":"FantasticFour","age":25}'
+curl -XPOST 'http://localhost:9200/heroes/person/thething' -H 'Content-Type: application/json' -d '{"firstName":"Ben","lastName":"Grimm","aka":"The Thing","team":"FantasticFour","age":42}'
 ```
 
 L'API `_search` permet d'effectuer des [recherches](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html) dans ElasticSearch.
@@ -27,7 +27,7 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search'
 La requête suivante permet de rechercher tous les documents qui ont un attribut `lastName` dont la valeur est `storm` :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: application/json' -d '{
     "query": {
         "match": {
            "lastName": "storm"
@@ -39,7 +39,7 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
 La requête suivante permet d'effectuer une recherche sur les documents dont le prénom commence par un `t` :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: application/json' -d '{
     "query": {
         "wildcard": {
            "firstName": {
@@ -67,7 +67,7 @@ Bien qu'il soit possible de combiner recherche et agrégations, nous ne nous int
 Pour obtenir la répartition des valeurs du terme `team` dans les documents de type `person` de l'index `heroes` :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: application/json' -d '{
     "size": 0,
     "aggs" : {
         "teams" : {
@@ -82,20 +82,20 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
 Il est possible de faire des sous-agrégations. Pour obtenir la répartition des valeurs du terme `lastName` dans la répartition du terme `team` dans les documents de type `person` de l'index `heroes` :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: application/json' -d '{
     "size": 0,
     "aggs" : {
         "teams" : {
             "terms": {
                 "field": "team.keyword"
             },
-			"aggs" : {
+            "aggs" : {
                 "names" : {
                     "terms": {
-    	                "field": "lastName.keyword"
-    	            }
+                        "field": "lastName.keyword"
+                    }
                 }
-			}
+            }
         }
     }
 }'
@@ -104,7 +104,7 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
 Il est possible de faire des calculs avec les agrégations. Par exemple pour l'âge moyen des membres de chaque équipe :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: application/json' -d '{
     "size": 0,
      "aggs" : {
          "teams" : {
@@ -112,13 +112,13 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search' -d '{
                 "field": "team.keyword",
                 "order" : { "avgAge" : "desc" }
             },
-			"aggs" : {
+            "aggs" : {
                 "avgAge" : {
                     "avg" : {
                         "field" : "age"
                     }
                 }
-			}
+            }
         }
     }
 }'
