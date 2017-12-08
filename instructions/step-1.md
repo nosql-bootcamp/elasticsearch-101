@@ -98,7 +98,7 @@ Si l'index n'existe pas au moment de la création du document, celui-ci est cré
 Pour l'insertion de données, les verbes **POST** et **PUT** sont équivalents. Le verbe **POST** permet d'insérer des documents sans spéficier l'identifiant du document.
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/' -H 'Content-Type: application/json' -d '{
 	"firstName" : "Charles",
 	"lastName" : "Xavier"
 }'
@@ -154,7 +154,7 @@ Pour mettre à jour les données, il est possible d'utiliser les requêtes **PUT
 Il est possible d'effectuer des mises à jour partielles en utilisant l'API `_update`.
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/ironman/_update' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/ironman/_update' -H 'Content-Type: application/json' -d '{
 	"doc" : {
 		"firstName" : "Tomy"
 	}
