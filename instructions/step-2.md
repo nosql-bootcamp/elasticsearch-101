@@ -24,6 +24,12 @@ La requête suivante lance une recherche sur l'ensemble des documents de type `p
 curl -XPOST 'http://localhost:9200/heroes/person/_search'
 ```
 
+Il est possible de formatter correctement le résultat de la recherche grâce au paramètre `pretty`.
+
+```bash
+curl -XPOST 'http://localhost:9200/heroes/person/_search?pretty'
+```
+
 La requête suivante permet de rechercher tous les documents qui ont un attribut `lastName` dont la valeur est `storm` :
 
 ```bash
