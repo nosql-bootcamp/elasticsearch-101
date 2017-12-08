@@ -73,7 +73,7 @@ Vous trouverez de nombreux exemples (inclusions, exclusions, jokers, ...) dans l
 Pour insérer un document, on utilise la requête suivante :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/ironman' -d '{
+curl -XPOST 'http://localhost:9200/heroes/person/ironman' -H 'Content-Type: application/json' -d '{
 	"firstName" : "Tony",
 	"lastName" : "Stark"
 }'
