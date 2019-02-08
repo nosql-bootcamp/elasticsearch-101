@@ -26,7 +26,7 @@ Les principales fonctionnalités d'**ElasticSearch** sont les suivantes :
 
 ElasticSearch dispose en outre d'un des écosystèmes les plus riches parmi les bases de données NoSQL. La stack Elastic (anciennement **stack ELK**), qui comprend [**Logstash**](https://www.elastic.co/fr/products/logstash), [**Kibana**](https://www.elastic.co/fr/products/kibana) et [**Beats**](https://www.elastic.co/products/beats) est très utilisée pour la centralisation de logs.
 
-Ce workshop est basé sur la **version 6.0.1** d'ElasticSearch.
+Ce workshop est basé sur la **version 6.6.0** d'ElasticSearch.
 
 ## Étapes du workshop
 
