@@ -59,7 +59,7 @@ curl -XPOST 'http://localhost:9200/heroes/person/_search' -H 'Content-Type: appl
 Il est possible de faire des recherches à plusieurs niveaux :
 
 * sur un type et un index donnés : `http://localhost:9200/heroes/person/_search`
-* sur l'ensemble des types d'un index donné : `http://localhost:9200/heroes/_search`
+* sur plusieurs index : `http://localhost:9200/heroes,vilains/_search`
 * sur l'ensemble des index d'un cluster : `http://localhost:9200/_search`
 
 Effectuez maintenant quelques recherches à l'aide de requêtes de type [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).
