@@ -6,13 +6,13 @@ ElasticSearch étant basé sur le langage Java, veillez à disposer de **Java 8*
 
 ### ElasticSearch
 
-Téléchargez la dernière version d'ElasticSearch sur [www.elastic.co](https://www.elastic.co/downloads/elasticsearch), ce workshop est compatible avec la version **6.0.1**.
+Téléchargez la dernière version d'ElasticSearch sur [www.elastic.co](https://www.elastic.co/downloads/elasticsearch), ce workshop est compatible avec la version **6.6.0**.
 
-Dézippez l'archive dans le dossier de votre choix, par exemple `~/progs/elasticsearch-6.0.1`.
+Dézippez l'archive dans le dossier de votre choix, par exemple `~/progs/elasticsearch-6.6.0`.
 
 Les exécutables nécessaires au fonctionnement d'ElasticSearch se trouvent dans le dossier `$HOME/progs/elasticsearch-<version>/bin`, **elasticsearch** permet de lancer le noeud et **plugin** permet d'installer des plugins.
 
-Le fichier `$HOME/progs/elasticsearch-6.0.1/config/elasticsearch.yml`, au format [YAML](http://fr.wikipedia.org/wiki/YAML), permet de configurer ElasticSearch.
+Le fichier `$HOME/progs/elasticsearch-6.6.0/config/elasticsearch.yml`, au format [YAML](http://fr.wikipedia.org/wiki/YAML), permet de configurer ElasticSearch.
 
 La configuration par défaut nous suffit pour l'instant.
 
@@ -33,15 +33,17 @@ Pour vérifier le démarrage de votre noeud ElasticSearch : [http://localhost:92
 Vous devriez obtenir une réponse qui ressemble à celle là :
 ```javascript
 {
-  "name" : "73O92uC",
+  "name" : "t2lmMD5",
   "cluster_name" : "elasticsearch",
-  "cluster_uuid" : "DSpbcw2FShmDoY41ubOFKg",
+  "cluster_uuid" : "n3eGSgm8SYidkEOyTWQcnw",
   "version" : {
-    "number" : "6.0.1",
-    "build_hash" : "601be4a",
-    "build_date" : "2017-12-04T09:29:09.525Z",
+    "number" : "6.6.0",
+    "build_flavor" : "default",
+    "build_type" : "tar",
+    "build_hash" : "a9861f4",
+    "build_date" : "2019-01-24T11:27:09.439740Z",
     "build_snapshot" : false,
-    "lucene_version" : "7.0.1",
+    "lucene_version" : "7.6.0",
     "minimum_wire_compatibility_version" : "5.6.0",
     "minimum_index_compatibility_version" : "5.0.0"
   },
@@ -51,9 +53,9 @@ Vous devriez obtenir une réponse qui ressemble à celle là :
 
 ### Kibana
 
-Téléchargez la dernière version de Kibana correspondante à votre OS sur [www.elastic.co](https://www.elastic.co/downloads/kibana), ce workshop est compatible avec sur la version **6.0.1**.
+Téléchargez la dernière version de Kibana correspondante à votre OS sur [www.elastic.co](https://www.elastic.co/downloads/kibana), ce workshop est compatible avec sur la version **6.6.0**.
 
-Dézippez l'archive dans le dossier de votre choix, par exemple `~/progs/kibana-6.0.1`.
+Dézippez l'archive dans le dossier de votre choix, par exemple `~/progs/kibana-6.6.0`.
 
 Pour vérifier l'installation de Kibana, vous pouvez lancer la commande suivante :
 
