@@ -17,6 +17,8 @@ Un index est un regroupement logique d'un ensemble de documents. Un index est co
 ### Type
 Un type est un sous-ensemble d'un index qui permet de regrouper des documents. De la même manière que pour les index, les types permettent de configurer le stockage des documents. Tout document appartient à un type.
 
+:warning: Les types sont dépréciés depuis la version 6.x. Auparavant il était possible d'avoir plusieurs types au sein d'un même index. Pour les index créés depuis la version 6, seul un type est autorisé par index. Si possible préférez `_doc` comme nom de type pour que les URLs soient compatibles avec la future version 7.x (cf. [explication](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html))
+
 ### Shard
 Un shard est un fragment d'un index. Ce sont les shards qui permettent de partitionner les index sur plusieurs noeuds. Ainsi, un index peut être partitionné sur autant de noeuds que cet index comporte de shards. Le nombre de shards par défaut est de **5**.
 
@@ -83,7 +85,7 @@ ou à l'aide de Kibana :
 
 ![kibana-insert-doc](./kibana-insert-doc.png)
 
-Le verbe, **POST**, indique qu'on insert un document.
+Le verbe, **POST**, indique qu'on insère un document.
 
 L'URL est construite de la manière suivante :
 
@@ -177,7 +179,7 @@ Il est possible, à l'aide du verbe **HEAD** de vérifier l'existence d'un docum
 curl --head 'http://localhost:9200/heroes/person/ironman'
 ```
 
-Les statut renvoyé :
+Les statuts renvoyés :
 
 * **200** indique que le document existe
 * **404** indique que le document n'existe pas
