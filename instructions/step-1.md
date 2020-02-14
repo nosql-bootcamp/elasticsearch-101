@@ -17,7 +17,7 @@ Un index est un regroupement logique d'un ensemble de documents. Un index est co
 ### Type
 Un type est un sous-ensemble d'un index qui permet de regrouper des documents. De la même manière que pour les index, les types permettent de configurer le stockage des documents. Tout document appartient à un type.
 
-:warning: Les types sont dépréciés depuis la version 6.x. Auparavant il était possible d'avoir plusieurs types au sein d'un même index. Pour les index créés depuis la version 6, seul un type est autorisé par index. Si possible préférez `_doc` comme nom de type pour que les URLs soient compatibles avec la future version 7.x (cf. [explication](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html))
+:warning: Les types sont dépréciés depuis la version 6.x. Auparavant il était possible d'avoir plusieurs types au sein d'un même index. Pour les index créés depuis la version 6, seul un type est autorisé par index. Pour les version d'Elasticsearch < 6, préférez `_doc` comme nom de type pour que les URLs soient compatibles la version 7.x.
 
 ### Shard
 Un shard est un fragment d'un index. Ce sont les shards qui permettent de partitionner les index sur plusieurs noeuds. Ainsi, un index peut être partitionné sur autant de noeuds que cet index comporte de shards. Le nombre de shards par défaut est de **5**.
@@ -27,13 +27,13 @@ Une réplique est une copie intégrale des données d'un index. Les répliques p
 
 ## Prise en main de l'API
 
-ElasticSearch expose l'ensemble de ses APIs à l'aide d'une API [REST](http://www.pompage.net/traduction/comment-j-ai-explique-rest-a-ma-femme), il est donc possible d'utiliser n'importe quel client HTTP pour manipuler ElasticSearch.
+ElasticSearch expose l'ensemble de ses APIs à l'aide d'une API REST, il est donc possible d'utiliser n'importe quel client HTTP pour manipuler ElasticSearch.
 
 Les DevTools de **Kibana** facilitent l'utilisation d'ElasticSearch.
 
 ![kibana-dev-tools](./kibana-dev-tools.png)
 
-Votre client *REST* préféré, si vous en avez un, fera sans problèmes l'affaire :smile:.
+Votre client *REST* préféré, si vous en avez un, fera sans problème l'affaire :smile:.
 
 ### Les conventions
 
@@ -47,17 +47,17 @@ http://[host]:[port]/index/type/_action|id
 
 Par exemple
 
-* pour effectuer une recherche parmi les documents de type 'person' dans l'index 'heroes' :
+* pour effectuer une recherche parmi les documents de l'index 'heroes' :
 ```
-http://localhost:9200/heroes/person/_search
+http://localhost:9200/heroes/_doc/_search
 ```
-* pour compter le nombre de documents de type 'person' dans l'index 'heroes'
+* pour compter le nombre de documents de l'index 'heroes'
 ```
-http://localhost:9200/heroes/person/_count
+http://localhost:9200/heroes/_doc/_count
 ```
 * pour accéder au document 'ironman'
 ```
-http://localhost:9200/heroes/person/ironman
+http://localhost:9200/heroes/_doc/ironman
 ```
 
 Les actions sur les index permettent généralement d'effectuer l'opération sur plusieurs index simultanément. Par exemple, pour effectuer une requête sur les index `index1` et `index2`, il est possible d'utiliser l'URL suivante :
@@ -75,7 +75,7 @@ Vous trouverez de nombreux exemples (inclusions, exclusions, jokers, ...) dans l
 Pour insérer un document, on utilise la requête suivante :
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/ironman' -H 'Content-Type: application/json' -d '{
+curl -XPOST 'http://localhost:9200/heroes/_doc/ironman' -H 'Content-Type: application/json' -d '{
 	"firstName" : "Tony",
 	"lastName" : "Stark"
 }'
@@ -100,7 +100,7 @@ Si l'index n'existe pas au moment de la création du document, celui-ci est cré
 Pour l'insertion de données, les verbes **POST** et **PUT** sont équivalents. Le verbe **POST** permet d'insérer des documents sans spéficier l'identifiant du document.
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/' -H 'Content-Type: application/json' -d '{
+curl -XPOST 'http://localhost:9200/heroes/_doc/' -H 'Content-Type: application/json' -d '{
 	"firstName" : "Charles",
 	"lastName" : "Xavier"
 }'
@@ -109,18 +109,20 @@ curl -XPOST 'http://localhost:9200/heroes/person/' -H 'Content-Type: application
 La réponse renvoyée contient l'identifiant généré par ElasticSearch.
 
 ```json
-    {
-      "_index": "heroes",
-      "_type": "person",
-      "_id": "AVLAbGUTL1N-EpXDlqsB",
-      "_version": 1,
-      "_shards": {
-        "total": 2,
-        "successful": 1,
-        "failed": 0
-      },
-      "created": true
-    }
+{
+  "_index" : "heroes",
+  "_type" : "_doc",
+  "_id" : "d5jjQ3ABtiCVoeXCO1nv",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
 ```
 
 ### Extraction
@@ -128,23 +130,25 @@ La réponse renvoyée contient l'identifiant généré par ElasticSearch.
 Pour extraire un document à l'aide de son identifiant, on utilise la requête suivante.
 
 ```bash
-curl -XGET 'http://localhost:9200/heroes/person/ironman'
+curl -XGET 'http://localhost:9200/heroes/_doc/ironman'
 ```
 
 La réponse renvoyée est la suivante :
 
-```javascript
-	{
-	   "_index": "heroes",
-	   "_type": "person",
-	   "_id": "ironman",
-	   "_version": 1,
-	   "found": true,
-	   "_source": {
-	      "firstName": "Tony",
-	      "lastName": "Stark"
-	   }
-	}
+```json
+{
+  "_index" : "heroes",
+  "_type" : "_doc",
+  "_id" : "ironman",
+  "_version" : 1,
+  "_seq_no" : 1,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "firstName" : "Tony",
+    "lastName" : "Stark"
+  }
+}
 ```
 
 L'attribut `found` indique que le document a bien été trouvé (`true` dans notre cas, `false` si le document n'a pas été trouvé). L'attribut `_source` contient le document extrait.
@@ -156,7 +160,7 @@ Pour mettre à jour les données, il est possible d'utiliser les requêtes **PUT
 Il est possible d'effectuer des mises à jour partielles en utilisant l'API `_update`.
 
 ```bash
-curl -XPOST 'http://localhost:9200/heroes/person/ironman/_update' -H 'Content-Type: application/json' -d '{
+curl -XPOST 'http://localhost:9200/heroes/_doc/ironman/_update' -H 'Content-Type: application/json' -d '{
 	"doc" : {
 		"firstName" : "Tomy"
 	}
@@ -168,7 +172,7 @@ curl -XPOST 'http://localhost:9200/heroes/person/ironman/_update' -H 'Content-Ty
 Pour supprimer un document, on utilise le verbe **DELETE**
 
 ```bash
-curl -XDELETE 'http://localhost:9200/heroes/person/ironman'
+curl -XDELETE 'http://localhost:9200/heroes/_doc/ironman'
 ```
 
 ### Exists
@@ -176,7 +180,7 @@ curl -XDELETE 'http://localhost:9200/heroes/person/ironman'
 Il est possible, à l'aide du verbe **HEAD** de vérifier l'existence d'un document (**attention, cette requête ne fonctionne pas sous Kibana !**)
 
 ```bash
-curl --head 'http://localhost:9200/heroes/person/ironman'
+curl --head 'http://localhost:9200/heroes/_doc/ironman'
 ```
 
 Les statuts renvoyés :

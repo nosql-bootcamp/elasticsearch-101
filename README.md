@@ -1,6 +1,6 @@
 # ElasticSearch 101
 
-![elastic-logo](https://static-www.elastic.co/fr/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg?q=700)
+![elastic-logo](https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg)
 
 **ElasticSearch 101** est un workshop permettant de découvrir la base de données NoSQL ElasticSearch et son écosystème, étape par étape.
 
@@ -26,7 +26,7 @@ Les principales fonctionnalités d'**ElasticSearch** sont les suivantes :
 
 ElasticSearch dispose en outre d'un des écosystèmes les plus riches parmi les bases de données NoSQL. La stack Elastic (anciennement **stack ELK**), qui comprend [**Logstash**](https://www.elastic.co/fr/products/logstash), [**Kibana**](https://www.elastic.co/fr/products/kibana) et [**Beats**](https://www.elastic.co/products/beats) est très utilisée pour la centralisation de logs.
 
-Ce workshop est basé sur la **version 6.6.0** d'ElasticSearch.
+Ce workshop est basé sur la **version 7.5.2** d'ElasticSearch.
 
 ## Étapes du workshop
 
