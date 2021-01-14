@@ -20,7 +20,7 @@ Un type est un sous-ensemble d'un index qui permet de regrouper des documents. D
 :warning: Les types sont dépréciés depuis la version 6.x. Auparavant il était possible d'avoir plusieurs types au sein d'un même index. Pour les index créés depuis la version 6, seul un type est autorisé par index. Pour les version d'Elasticsearch < 6, préférez `_doc` comme nom de type pour que les URLs soient compatibles la version 7.x.
 
 ### Shard
-Un shard est un fragment d'un index. Ce sont les shards qui permettent de partitionner les index sur plusieurs noeuds. Ainsi, un index peut être partitionné sur autant de noeuds que cet index comporte de shards. Le nombre de shards par défaut est de **5**.
+Un shard est un fragment d'un index. Ce sont les shards qui permettent de partitionner les index sur plusieurs noeuds. Ainsi, un index peut être partitionné sur autant de noeuds que cet index comporte de shards. Le nombre de shards par défaut est de **1** *(il était de 5 dans les versions d'elasticsearch <= 6)*.
 
 ### Réplique
 Une réplique est une copie intégrale des données d'un index. Les répliques permettent d'améliorer la tolérance à la panne du cluster ainsi que la durabilité des données. Une réplique comporte autant de shards que l'index original. Le nombre de répliques par défaut est de **1**.
@@ -60,7 +60,7 @@ http://localhost:9200/heroes/_doc/_count
 http://localhost:9200/heroes/_doc/ironman
 ```
 
-Les actions sur les index permettent généralement d'effectuer l'opération sur plusieurs index simultanément. Par exemple, pour effectuer une requête sur les index `index1` et `index2`, il est possible d'utiliser l'URL suivante :
+Les actions sur les index permettent généralement d'effectuer l'opération sur plusieurs index simultanément. Par exemple, pour effectuer une requête sur les index `heroes` et `vilains`, il est possible d'utiliser l'URL suivante :
 
 ```
 http://localhost:9200/heroes,vilains/_search
