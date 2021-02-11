@@ -29,7 +29,7 @@ Une réplique est une copie intégrale des données d'un index. Les répliques p
 
 ElasticSearch expose l'ensemble de ses APIs à l'aide d'une API REST, il est donc possible d'utiliser n'importe quel client HTTP pour manipuler ElasticSearch.
 
-Les DevTools de **Kibana** facilitent l'utilisation d'ElasticSearch.
+Les DevTools de **Kibana** facilitent l'utilisation d'ElasticSearch (http://localhost:5601/app/dev_tools#/console).
 
 ![kibana-dev-tools](./kibana-dev-tools.png)
 
