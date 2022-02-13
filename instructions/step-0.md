@@ -4,6 +4,8 @@
 
 Plutôt que d'installer ElasticSearch localement, vous pouvez profiter de l'essai gratuit (15 jours) de la version cloud qui est accessible sur [https://www.elastic.co/fr/](https://www.elastic.co/fr/) (bouton bleu `Essai gratuit` en haut à droite). 
 
+**Pensez à bien enregistrer votre mot de passe, il ne vous est donné qu'une seule fois.**
+
 Cette option est plus simple, néanmoins, vous devrez adapter les requêtes dans le reste de ce document, par exemple : 
 
 ```
