@@ -1,5 +1,20 @@
 ## Installation
 
+### Utilisation d'une version cloud
+
+Plutôt que d'installer ElasticSearch localement, vous pouvez profiter de l'essai gratuit (15 jours) de la version cloud qui est accessible sur [https://www.elastic.co/fr/](https://www.elastic.co/fr/) (bouton bleu `Essai gratuit` en haut à droite). 
+
+Cette option est plus simple, néanmoins, vous devrez adapter les requêtes dans le reste de ce document, par exemple : 
+
+```
+curl -XGET 'http://localhost:9200/'
+```
+deviendrait :
+
+```
+curl -XGET -u elastic:<password> https://<deployment-port>:<deployment-url>
+```
+
 ### Java
 
 ElasticSearch étant basé sur le langage Java, veillez à disposer de **Java 8** installé sur votre machine. Vous pouvez vérifier l'installation de Java à l'aide de la commande `java -version`.
