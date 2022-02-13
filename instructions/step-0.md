@@ -17,11 +17,12 @@ deviendrait :
 curl -XGET -u elastic:<password> https://<deployment-port>:<deployment-url>
 ```
 
-### Java
+### Installation en local
+#### Java
 
 ElasticSearch étant basé sur le langage Java, veillez à disposer de **Java 8** installé sur votre machine. Vous pouvez vérifier l'installation de Java à l'aide de la commande `java -version`.
 
-### ElasticSearch
+#### ElasticSearch
 
 Téléchargez la dernière version d'ElasticSearch sur [www.elastic.co](https://www.elastic.co/downloads/elasticsearch), ce workshop est compatible avec la version **7.10.x**.
 
@@ -68,7 +69,7 @@ Vous devriez obtenir une réponse qui ressemble à celle là :
 }
 ```
 
-### Kibana
+#### Kibana
 
 Téléchargez la dernière version de Kibana correspondante à votre OS sur [www.elastic.co](https://www.elastic.co/downloads/kibana), ce workshop est compatible avec sur la version **7.10.x**.
 
