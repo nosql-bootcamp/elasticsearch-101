@@ -133,5 +133,5 @@ curl -XPOST 'http://localhost:9200/heroes/_search' -H 'Content-Type: application
 Quelques exercices complémentaires :
 
 * Vous pouvez à présent écrire une agrégation qui calcule l'âge maximum par équipe.
-* Vous pouvez à présent écrire une agrégation qui calcule l'âge maximum par équipe pour les personnages dont le nom commence par la lettre 't'.
+* Vous pouvez à présent écrire une agrégation qui calcule l'âge maximum par équipe pour les personnages dont l'alias (`aka`) commence par la lettre 't'.
 * En utilisant les agrégations de type [Histogram](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-histogram-aggregation.html), créez une agrégation permettant de regrouper les héros par tranche d'âge (par dizaine).
